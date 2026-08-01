@@ -8,65 +8,66 @@
 </head>
 <body>
 
-    <div class="app">
+<div class="app">
 
-        <aside class="sidebar">
-            <div class="logo">
-                Workspace
-            </div>
+    <aside class="sidebar">
+        <div class="logo">
+            Workspace
+        </div>
 
-            <nav>
-                <button class="nav-btn active">Home</button>
-                <button class="nav-btn">Objects</button>
-                <button class="nav-btn">Templates</button>
-                <button class="nav-btn">Search</button>
-                <button class="nav-btn">Settings</button>
-            </nav>
-        </aside>
+        <nav>
+            <button class="nav-btn active">Home</button>
+            <button class="nav-btn">Documents</button>
+            <button class="nav-btn">Templates</button>
+            <button class="nav-btn">Search</button>
+            <button class="nav-btn">Settings</button>
+        </nav>
+    </aside>
 
-        <main class="main-content">
+    <main class="main-content">
 
-            <header class="topbar">
-                <input
-                    type="text"
-                    placeholder="Search..."
-                    class="search-input"
-                >
-            </header>
+        <header class="topbar">
+            <input
+                type="text"
+                placeholder="Search..."
+                class="search-input"
+            >
+        </header>
 
-            <section class="workspace">
+        <section class="workspace">
 
-                <h1>Welcome</h1>
+            <h1>Document Editor</h1>
 
-                <p>
-                    This is the foundation of your platform.
-                </p>
+            <p>
+                Write anything below. Nothing is saved on the website.
+                Refreshing the page clears everything.
+                Export your work as a text file whenever you want.
+            </p>
 
-                <div class="cards">
+            <input
+                type="text"
+                id="docTitle"
+                class="title-input"
+                placeholder="Document Title"
+            >
 
-                    <div class="card">
-                        <h3>Objects</h3>
-                        <p>Store anything.</p>
-                    </div>
+            <textarea
+                id="docContent"
+                class="editor"
+                placeholder="Start writing..."
+            ></textarea>
 
-                    <div class="card">
-                        <h3>Types</h3>
-                        <p>Create custom structures.</p>
-                    </div>
+            <button id="exportBtn" class="export-btn">
+                Export .txt
+            </button>
 
-                    <div class="card">
-                        <h3>Templates</h3>
-                        <p>Build reusable systems.</p>
-                    </div>
+        </section>
 
-                </div>
+    </main>
 
-            </section>
+</div>
 
-        </main>
+<script src="script.js"></script>
 
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
