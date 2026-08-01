@@ -1,49 +1,31 @@
-const buttons = document.querySelectorAll(".nav-btn");
-
-buttons.forEach(button => {
-    button.addEventListener("click", () => {
-
-        buttons.forEach(btn => {
-            btn.classList.remove("active");
-        });
-
-        button.classList.add("active");
-    });
-});
-
 const exportBtn = document.getElementById("exportBtn");
 
-exportBtn.addEventListener("click", () => {
+exportBtn.addEventListener("click", function () {
 
     const title =
-        document.getElementById("docTitle").value.trim() ||
-        "untitled";
+        document.getElementById("docTitle").value || "untitled";
 
     const content =
         document.getElementById("docContent").value;
 
-    const text =
-`Title: ${title}
+    const fileContent =
+        "Title: " + title + "\n\n" + content;
 
-${content}`;
+    const blob =
+        new Blob([fileContent], { type: "text/plain" });
 
-    const blob = new Blob(
-        [text],
-        { type: "text/plain" }
-    );
+    const url =
+        window.URL.createObjectURL(blob);
 
-    const link =
+    const a =
         document.createElement("a");
 
-    link.href =
-        URL.createObjectURL(blob);
+    a.href = url;
+    a.download = title + ".txt";
 
-    link.download =
-        `${title}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    URL.revokeObjectURL(link.href);
+    window.URL.revokeObjectURL(url);
 });
